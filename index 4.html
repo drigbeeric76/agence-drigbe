@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RECRUTEMENT ENCADREURS (CI) — Agence DRIGBE</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:#EEF2FF;color:#1a1a1a;min-height:100vh}
+.hero{background:linear-gradient(135deg,#1E40AF,#2563EB,#60A5FA);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.1)}
+.hero::after{content:'';position:absolute;bottom:-40px;left:-40px;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,0.07)}
+.badge{display:inline-block;background:rgba(255,255,255,0.25);border:2px solid rgba(255,255,255,0.5);color:white;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 16px;border-radius:30px;margin-bottom:1rem;position:relative;z-index:1}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,5vw,2.4rem);font-weight:800;line-height:1.15;margin-bottom:.5rem;position:relative;z-index:1}
+.hero p{font-size:14px;color:rgba(255,255,255,0.92);max-width:460px;margin:0 auto .75rem;line-height:1.6;position:relative;z-index:1}
+.fondateur-bar{background:rgba(255,255,255,0.18);border-radius:10px;padding:.6rem 1rem;max-width:400px;margin:.75rem auto 0;font-size:12px;color:rgba(255,255,255,0.95);position:relative;z-index:1}
+.benefits{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:1rem;position:relative;z-index:1}
+.benefit{background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.35);color:white;font-size:11px;font-weight:600;padding:5px 12px;border-radius:20px}
+
+.type-selector{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:1.5rem 0 1.25rem}
+.type-btn{padding:1rem;border:2px solid #BFDBFE;border-radius:14px;background:white;cursor:pointer;text-align:center;transition:all .2s}
+.type-btn.active{border-color:#2563EB;background:#EFF6FF}
+.type-icon{font-size:24px;margin-bottom:6px}
+.type-label{font-size:13px;font-weight:700;color:#1E40AF}
+.type-sub{font-size:11px;color:#6b7280;margin-top:2px}
+
+.container{max-width:640px;margin:0 auto;padding:1.5rem 1.25rem 3rem}
+.info-notice{background:#DBEAFE;border:2px solid #93C5FD;border-radius:10px;padding:12px 16px;font-size:13px;color:#1E40AF;margin-bottom:1.25rem;line-height:1.6;font-weight:500}
+.form-card{background:white;border:2px solid #BFDBFE;border-radius:16px;padding:1.75rem;margin-bottom:1.25rem}
+.section-heading{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:2px solid #EEF2FF}
+.section-dot{width:10px;height:10px;border-radius:50%;background:#2563EB;flex-shrink:0}
+.section-heading h2{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#1E40AF}
+.field{margin-bottom:1.1rem}
+.field label{display:block;font-size:13px;font-weight:700;color:#1a1a1a;margin-bottom:5px}
+.required{color:#DC2626}
+.field input,.field select,.field textarea{width:100%;padding:11px 14px;font-family:'DM Sans',sans-serif;font-size:14px;color:#1a1a1a;background:#EEF2FF;border:2px solid #BFDBFE;border-radius:10px;outline:none;transition:border-color .2s;appearance:none;-webkit-appearance:none}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:#2563EB;background:white}
+.field textarea{resize:vertical;min-height:90px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.hidden-section{display:none}
+.submit-btn{display:block;width:100%;padding:15px;background:linear-gradient(135deg,#1E40AF,#2563EB);color:white;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:700;border:none;border-radius:12px;cursor:pointer;transition:opacity .2s,transform .1s}
+.submit-btn:hover{opacity:.9}
+.submit-btn:active{transform:scale(.99)}
+.submit-btn:disabled{background:#9ca3af;cursor:not-allowed}
+.success-box{display:none;background:#DBEAFE;border:2px solid #2563EB;border-radius:16px;padding:2rem;text-align:center;margin-top:1.5rem}
+.checkmark{width:60px;height:60px;background:linear-gradient(135deg,#1E40AF,#2563EB);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:26px;color:white}
+.success-box h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:#1E40AF;margin-bottom:.5rem}
+.success-box p{font-size:13px;color:#1E3A8A;line-height:1.7}
+.wa-notice{background:#E7F5E7;border:2px solid #4CAF50;border-radius:10px;padding:10px 14px;margin-top:12px;font-size:12px;color:#1B5E20;font-weight:600}
+footer{text-align:center;padding:1.5rem;font-size:12px;color:#9ca3af;border-top:2px solid #BFDBFE;margin-top:1rem;line-height:1.9}
+footer strong{color:#2563EB;font-weight:700}
+footer a{color:#2563EB;text-decoration:none;font-weight:700}
+@media(max-width:480px){.form-card{padding:1.25rem}.hero{padding:2rem 1rem 1.75rem}.type-selector{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="badge">🇨🇮 Agence DRIGBE — Inscription gratuite</div>
+  <h1>RECRUTEMENT<br>ENCADREURS (CI)</h1>
+  <p>Tuteurs, répétiteurs, enseignants et écoles privées — rejoignez notre réseau national et trouvez des missions.</p>
+  <div class="fondateur-bar">👨‍💼 Responsable : <strong>DRIGBE VLO ERIC</strong> — Fondateur de l'Agence</div>
+  <div class="benefits">
+    <span class="benefit">✓ Réseau national CI</span>
+    <span class="benefit">✓ Profil vérifié</span>
+    <span class="benefit">✓ Missions régulières</span>
+    <span class="benefit">✓ Gratuit</span>
+  </div>
+</div>
+
+<div class="container">
+  <div class="info-notice">📋 Choisissez votre profil puis remplissez le formulaire. Vos informations arrivent directement chez <strong>ERIC</strong> par WhatsApp et Email.</div>
+
+  <div class="type-selector">
+    <button class="type-btn active" onclick="setType('encadreur',this)">
+      <div class="type-icon">👨‍🏫</div>
+      <div class="type-label">Encadreur / Tuteur</div>
+      <div class="type-sub">Cours à domicile, soutien scolaire</div>
+    </button>
+    <button class="type-btn" onclick="setType('ecole',this)">
+      <div class="type-icon">🏫</div>
+      <div class="type-label">École privée</div>
+      <div class="type-sub">Établissement scolaire privé</div>
+    </button>
+  </div>
+
+  <form id="encadreurForm" action="https://formspree.io/f/xjgjelol" method="POST">
+    <input type="hidden" name="_subject" id="form_subject" value="📚 NOUVEAU ENCADREUR — Agence DRIGBE CI">
+    <input type="hidden" name="type_profil" id="type_profil" value="Encadreur / Tuteur">
+
+    <div class="form-card">
+      <div class="section-heading"><div class="section-dot"></div><h2 id="s1title">Informations personnelles</h2></div>
+
+      <div id="bloc_encadreur">
+        <div class="grid2">
+          <div class="field"><label>Nom complet <span class="required">*</span></label><input type="text" name="nom_complet" placeholder="Ex : Koné Ibrahima" required></div>
+          <div class="field"><label>Date de naissance</label><input type="date" name="date_naissance"></div>
+        </div>
+        <div class="grid2">
+          <div class="field"><label>Téléphone <span class="required">*</span></label><input type="tel" name="telephone" placeholder="07 XX XX XX XX" required></div>
+          <div class="field"><label>WhatsApp (si différent)</label><input type="tel" name="whatsapp" placeholder="05 XX XX XX XX"></div>
+        </div>
+        <div class="field"><label>Email</label><input type="email" name="email" placeholder="votre@email.com"></div>
+      </div>
+
+      <div id="bloc_ecole" class="hidden-section">
+        <div class="field"><label>Nom de l'établissement <span class="required">*</span></label><input type="text" name="nom_etablissement" placeholder="Ex : Groupe Scolaire Excellence"></div>
+        <div class="field"><label>Nom du directeur / responsable <span class="required">*</span></label><input type="text" name="nom_responsable" placeholder="Ex : M. Yao Kouassi"></div>
+        <div class="grid2">
+          <div class="field"><label>Téléphone <span class="required">*</span></label><input type="tel" name="telephone_ecole" placeholder="07 XX XX XX XX"></div>
+          <div class="field"><label>WhatsApp</label><input type="tel" name="whatsapp_ecole" placeholder="05 XX XX XX XX"></div>
+        </div>
+        <div class="field"><label>Email de l'établissement</label><input type="email" name="email_ecole" placeholder="contact@ecole.ci"></div>
+      </div>
+
+      <div class="grid2">
+        <div class="field">
+          <label>Ville <span class="required">*</span></label>
+          <select name="ville" required id="sv" onchange="upd()">
+            <option value="">— Choisir —</option>
+            <option>Abidjan</option><option>Yamoussoukro</option><option>Bouaké</option>
+            <option>Daloa</option><option>San-Pédro</option><option>Korhogo</option>
+            <option>Man</option><option>Abengourou</option><option>Gagnoa</option>
+            <option>Divo</option><option>Agboville</option><option>Grand-Bassam</option>
+            <option>Bingerville</option><option>Anyama</option><option>Dabou</option>
+            <option>Soubré</option><option>Tabou</option><option>Autre ville / Village</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Commune / Quartier <span class="required">*</span></label>
+          <select name="commune" required id="sc"><option value="">— Choisir d'abord la ville —</option></select>
+        </div>
+      </div>
+      <div class="field" id="avf" style="display:none"><label>Précisez votre ville</label><input type="text" name="autre_ville" placeholder="Ex : Bouaflé, Issia..."></div>
+    </div>
+
+    <!-- SECTION ENCADREUR -->
+    <div id="card_encadreur" class="form-card">
+      <div class="section-heading"><div class="section-dot"></div><h2>Compétences & matières</h2></div>
+      <div class="field">
+        <label>Niveaux enseignés <span class="required">*</span></label>
+        <select name="niveaux_enseignes">
+          <option value="">— Choisir —</option>
+          <option>Maternelle / Préscolaire</option><option>Primaire (CP – CM2)</option>
+          <option>Collège (6ème – 3ème)</option><option>Lycée (2nde – Terminale)</option>
+          <option>Primaire + Collège</option><option>Collège + Lycée</option>
+          <option>Tous niveaux</option><option>Université / BTS</option>
+        </select>
+      </div>
+      <div class="field"><label>Matières principales enseignées <span class="required">*</span></label><input type="text" name="matieres" placeholder="Ex : Mathématiques, Français, Anglais, Physique, SVT..."></div>
+      <div class="grid2">
+        <div class="field">
+          <label>Diplôme le plus élevé <span class="required">*</span></label>
+          <select name="diplome">
+            <option value="">— Choisir —</option>
+            <option>BAC</option><option>BAC+2 / BTS / DUT</option>
+            <option>BAC+3 / Licence</option><option>BAC+4 / Maîtrise</option>
+            <option>BAC+5 / Master</option><option>Doctorat</option>
+            <option>Formation CAFOP / ENS</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Années d'expérience</label>
+          <select name="experience">
+            <option value="">— Choisir —</option>
+            <option>Moins d'1 an</option><option>1 à 3 ans</option>
+            <option>3 à 5 ans</option><option>Plus de 5 ans</option><option>Plus de 10 ans</option>
+          </select>
+        </div>
+      </div>
+      <div class="grid2">
+        <div class="field">
+          <label>Disponibilité</label>
+          <select name="disponibilite">
+            <option value="">— Choisir —</option>
+            <option>Matin (7h–12h)</option><option>Après-midi (12h–17h)</option>
+            <option>Soir (17h–21h)</option><option>Week-end uniquement</option>
+            <option>Flexible</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Tarif horaire (FCFA)</label>
+          <select name="tarif_horaire">
+            <option value="">— Choisir —</option>
+            <option>Moins de 2 000 FCFA/h</option><option>2 000 – 4 000 FCFA/h</option>
+            <option>4 000 – 7 000 FCFA/h</option><option>7 000 – 10 000 FCFA/h</option>
+            <option>Plus de 10 000 FCFA/h</option><option>À négocier</option>
+          </select>
+        </div>
+      </div>
+      <div class="field"><label>Zones d'intervention</label><input type="text" name="zones_intervention" placeholder="Ex : Cocody, Plateau, toute Abidjan, toute la CI..."></div>
+      <div class="field"><label>Description / Motivation</label><textarea name="description" placeholder="Votre méthode pédagogique, vos points forts, vos expériences..."></textarea></div>
+    </div>
+
+    <!-- SECTION ÉCOLE -->
+    <div id="card_ecole" class="form-card hidden-section">
+      <div class="section-heading"><div class="section-dot"></div><h2>Informations sur l'établissement</h2></div>
+      <div class="grid2">
+        <div class="field">
+          <label>Type d'établissement</label>
+          <select name="type_etablissement">
+            <option value="">— Choisir —</option>
+            <option>École maternelle privée</option><option>École primaire privée</option>
+            <option>Collège privé</option><option>Lycée privé</option>
+            <option>École complète (maternel au lycée)</option>
+            <option>Centre de formation professionnelle</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Nombre d'élèves</label>
+          <select name="nb_eleves">
+            <option value="">— Choisir —</option>
+            <option>Moins de 100 élèves</option><option>100 – 300 élèves</option>
+            <option>300 – 600 élèves</option><option>Plus de 600 élèves</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label>Service recherché auprès de l'Agence DRIGBE</label>
+        <select name="service_recherche">
+          <option value="">— Choisir —</option>
+          <option>Recrutement d'enseignants qualifiés</option>
+          <option>Recrutement personnel administratif</option>
+          <option>Recrutement personnel d'entretien</option>
+          <option>Partenariat pour cours à domicile</option>
+          <option>Plusieurs services</option>
+        </select>
+      </div>
+      <div class="field"><label>Postes ouverts / matières recherchées</label><input type="text" name="postes_ouverts" placeholder="Ex : Prof de Maths, Anglais, Éducateur maternelle..."></div>
+      <div class="field"><label>Description de vos besoins</label><textarea name="description" placeholder="Décrivez votre école, vos besoins, ce que vous attendez de notre partenariat..."></textarea></div>
+    </div>
+
+    <div class="form-card">
+      <div class="field">
+        <label>Comment avez-vous connu l'Agence DRIGBE ?</label>
+        <select name="source"><option value="">— Choisir —</option><option>Facebook</option><option>WhatsApp</option><option>Recommandation</option><option>TikTok</option><option>Affiche / Flyer</option><option>Autre</option></select>
+      </div>
+      <button type="button" class="submit-btn" id="submitBtn" onclick="submitForm()">📤 Envoyer mon inscription</button>
+    </div>
+  </form>
+
+  <div class="success-box" id="successBox">
+    <div class="checkmark">✓</div>
+    <h3>Inscription envoyée !</h3>
+    <p>Merci ! Votre dossier a été transmis à <strong>DRIGBE VLO ERIC</strong> par email et WhatsApp.<br>Il vous contactera dans les <strong>24 à 48h</strong>.</p>
+    <div class="wa-notice">📱 Vos informations ont été envoyées directement à ERIC sur WhatsApp !</div>
+  </div>
+</div>
+
+<footer>
+  <strong>AGENCE DRIGBE — Personnel &amp; Encadreurs CI</strong><br>
+  Responsable : <strong>DRIGBE VLO ERIC</strong> — Étudiant en Mathématiques-Informatique, Université de Cocody<br>
+  <a href="https://wa.me/2250506058698">+225 05 06 05 86 98</a> &nbsp;|&nbsp;
+  <a href="https://wa.me/2250777457487">+225 07 77 45 74 87</a> &nbsp;|&nbsp;
+  <a href="mailto:drigbeeric76@gmail.com">drigbeeric76@gmail.com</a>
+</footer>
+
+<script>
+var C={'Abidjan':['Cocody','Plateau','Marcory','Treichville','Adjamé','Attécoubé','Koumassi','Port-Bouët','Yopougon','Abobo','Bingerville','Anyama','Songon','Deux Plateaux','Riviera','Angré','Zone 4','Zone Industrielle'],'Bouaké':['Bouaké Centre','Koko','Belleville','Broukro','Air France'],'Yamoussoukro':['Yamoussoukro Centre','Dioulakro','Morofé','Habitat'],'Daloa':['Daloa Centre','Tazibouo','Lobia'],'San-Pédro':['San-Pédro Centre','Bardo','Port'],'Korhogo':['Korhogo Centre','Soba'],'Man':['Man Centre','Gbapleu'],'Grand-Bassam':['Grand-Bassam Ville','Moossou'],'Bingerville':['Bingerville Centre'],'Anyama':['Anyama Centre'],'Dabou':['Dabou Centre']};
+function upd(){var v=document.getElementById('sv').value,s=document.getElementById('sc'),a=document.getElementById('avf');s.innerHTML='<option value="">— Choisir —</option>';if(v==='Autre ville / Village'){a.style.display='block';s.innerHTML+='<option>Centre-ville</option><option>Autre quartier</option>';return;}a.style.display='none';(C[v]||[]).forEach(function(x){var o=document.createElement('option');o.value=o.textContent=x;s.appendChild(o);});if(!C[v])s.innerHTML+='<option>Centre-ville</option><option>Autre quartier</option>';}
+function setType(t,btn){
+  document.querySelectorAll('.type-btn').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+  var isE=t==='ecole';
+  document.getElementById('bloc_encadreur').style.display=isE?'none':'block';
+  document.getElementById('bloc_ecole').style.display=isE?'block':'none';
+  document.getElementById('card_encadreur').style.display=isE?'none':'block';
+  document.getElementById('card_ecole').style.display=isE?'block':'none';
+  document.getElementById('form_subject').value=isE?'🏫 NOUVELLE ÉCOLE PRIVÉE — Agence DRIGBE CI':'📚 NOUVEAU ENCADREUR — Agence DRIGBE CI';
+  document.getElementById('type_profil').value=isE?'École Privée':'Encadreur / Tuteur';
+  document.getElementById('s1title').textContent=isE?"Informations établissement":"Informations personnelles";
+  document.getElementById('submitBtn').textContent=isE?"📤 Envoyer la fiche de l'établissement":"📤 Envoyer mon inscription";
+}
+function sendWA(titre){
+  var msg='🔔 *'+titre+'*\n\n';
+  var labels={nom_complet:'Nom',telephone:'Tél',whatsapp:'WhatsApp',email:'Email',nom_etablissement:'Établissement',nom_responsable:'Responsable',telephone_ecole:'Tél école',whatsapp_ecole:'WA école',email_ecole:'Email école',ville:'Ville',commune:'Commune',autre_ville:'Autre ville',niveaux_enseignes:'Niveaux',matieres:'Matières',diplome:'Diplôme',experience:'Expérience',disponibilite:'Disponibilité',tarif_horaire:'Tarif/h',zones_intervention:'Zones',description:'Description',type_etablissement:'Type école',nb_eleves:'Nb élèves',service_recherche:'Service recherché',postes_ouverts:'Postes',source:'Source',type_profil:'Type profil',date_naissance:'Naissance'};
+  document.querySelectorAll('#encadreurForm input,#encadreurForm select,#encadreurForm textarea').forEach(function(el){if(el.name&&el.name!=='_subject'&&el.value){msg+='• *'+(labels[el.name]||el.name)+'* : '+el.value+'\n';}});
+  msg+='\n📅 '+new Date().toLocaleDateString('fr-FR')+' '+new Date().toLocaleTimeString('fr-FR')+'\n\n_Agence DRIGBE CI_';
+  var enc=encodeURIComponent(msg);
+  window.open('https://wa.me/2250506058698?text='+enc,'_blank');
+  setTimeout(function(){window.open('https://wa.me/2250777457487?text='+enc,'_blank');},2000);
+}
+function submitForm(){
+  var form=document.getElementById('encadreurForm'),btn=document.getElementById('submitBtn');
+  btn.disabled=true;btn.textContent='Envoi en cours...';
+  var titre=document.getElementById('form_subject').value;
+  fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
+  .then(function(r){if(r.ok){form.style.display='none';document.getElementById('successBox').style.display='block';window.scrollTo({top:0,behavior:'smooth'});sendWA(titre);}else{btn.disabled=false;btn.textContent='📤 Envoyer mon inscription';alert('Erreur. Réessayez.');}})
+  .catch(function(){btn.disabled=false;btn.textContent='📤 Envoyer mon inscription';alert('Problème de connexion.');});
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AGENCE DRIGBE — Personnel & Encadreurs CI</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:#fff7f0;color:#1a1a1a;min-height:100vh}
+.hero{background:linear-gradient(135deg,#FF6B00 0%,#FF8C00 50%,#FFB347 100%);color:white;padding:3.5rem 1.5rem 4rem;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-100px;right:-100px;width:350px;height:350px;border-radius:50%;background:rgba(255,255,255,0.12)}
+.hero::after{content:'';position:absolute;bottom:-80px;left:-60px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,0.08)}
+.badge{display:inline-block;background:rgba(255,255,255,0.25);border:2px solid rgba(255,255,255,0.5);color:white;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:6px 18px;border-radius:30px;margin-bottom:1.25rem;position:relative;z-index:1}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,7vw,3.2rem);font-weight:800;line-height:1.1;margin-bottom:.5rem;position:relative;z-index:1}
+.hero h1 em{font-style:normal;background:rgba(255,255,255,0.22);border-radius:8px;padding:2px 12px}
+.hero p{font-size:15px;color:rgba(255,255,255,0.92);max-width:500px;margin:.75rem auto 0;line-height:1.7;position:relative;z-index:1}
+.fondateur{background:rgba(255,255,255,0.15);border:2px solid rgba(255,255,255,0.35);border-radius:16px;padding:1rem 1.5rem;max-width:420px;margin:1.75rem auto 0;position:relative;z-index:1;display:flex;align-items:center;gap:14px}
+.avatar{width:52px;height:52px;border-radius:50%;background:white;color:#FF6B00;font-size:18px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.fondateur-info{text-align:left}
+.fondateur-name{font-size:15px;font-weight:700;color:white}
+.fondateur-role{font-size:12px;color:rgba(255,255,255,0.82);margin-top:2px;line-height:1.4}
+.hero-stats{display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem;margin-top:2rem;position:relative;z-index:1}
+.stat-num{font-size:1.8rem;font-weight:800;color:white}
+.stat-label{font-size:11px;color:rgba(255,255,255,0.8);text-transform:uppercase;letter-spacing:.08em}
+
+.container{max-width:720px;margin:0 auto;padding:2rem 1.25rem 3rem}
+.section-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#FF6B00;margin-bottom:1rem;margin-top:2.5rem;display:flex;align-items:center;gap:10px}
+.section-label::after{content:'';flex:1;height:2px;background:linear-gradient(to right,#FF6B00,transparent)}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px;margin-bottom:.5rem}
+.card{display:block;text-decoration:none;border-radius:20px;padding:1.75rem;transition:transform .2s,box-shadow .22s;cursor:pointer;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:-40px;right:-40px;width:140px;height:140px;border-radius:50%;background:rgba(255,255,255,0.12)}
+.card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,0.22)}
+.card-icon{width:54px;height:54px;border-radius:14px;background:rgba(255,255,255,0.25);display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:1rem}
+.card-title{font-size:16px;font-weight:700;color:white;margin-bottom:.4rem;line-height:1.2}
+.card-desc{font-size:13px;color:rgba(255,255,255,0.9);line-height:1.6;margin-bottom:1.1rem}
+.card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.25rem}
+.tag{font-size:11px;padding:4px 10px;border-radius:20px;font-weight:600;background:rgba(255,255,255,0.22);color:white}
+.card-btn{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;padding:11px 20px;border-radius:10px;background:rgba(255,255,255,0.95);transition:background .15s,transform .1s}
+.card:hover .card-btn{background:white;transform:scale(1.04)}
+.card-orange{background:linear-gradient(135deg,#EA580C,#FF6B00)}.card-orange .card-btn{color:#EA580C}
+.card-violet{background:linear-gradient(135deg,#6D28D9,#A855F7)}.card-violet .card-btn{color:#6D28D9}
+.card-vert{background:linear-gradient(135deg,#047857,#10B981)}.card-vert .card-btn{color:#047857}
+.card-rouge{background:linear-gradient(135deg,#B91C1C,#F87171)}.card-rouge .card-btn{color:#B91C1C}
+
+.divider{display:flex;align-items:center;gap:14px;margin:2.5rem 0 .5rem}
+.divider-line{flex:1;height:2px;background:linear-gradient(to right,transparent,#FFB347,transparent)}
+.divider-text{font-size:13px;font-weight:700;color:#FF6B00;white-space:nowrap;padding:0 10px}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:2.5rem}
+.step{background:white;border:2px solid #FFE0C2;border-radius:16px;padding:1.25rem 1rem;text-align:center;transition:border-color .2s,transform .2s}
+.step:hover{border-color:#FF6B00;transform:translateY(-3px)}
+.step-num{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#FF6B00,#FF8C00);color:white;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto .75rem}
+.step-t{font-size:13px;font-weight:700;color:#1a1a1a;margin-bottom:.3rem}
+.step-d{font-size:11px;color:#9ca3af;line-height:1.5}
+
+.contact{background:linear-gradient(135deg,#047857,#10B981);color:white;border-radius:20px;padding:1.75rem 2rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1.5rem;position:relative;overflow:hidden}
+.contact::before{content:'';position:absolute;right:-50px;top:-50px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,0.1)}
+.contact h3{font-family:'Playfair Display',serif;font-size:1.1rem;margin-bottom:.3rem;position:relative;z-index:1}
+.contact p{font-size:13px;opacity:.85;position:relative;z-index:1}
+.contact-btns{display:flex;flex-wrap:wrap;gap:8px;position:relative;z-index:1}
+.contact-btns a{background:white;font-size:13px;font-weight:700;padding:10px 16px;border-radius:10px;text-decoration:none;white-space:nowrap;transition:transform .15s}
+.contact-btns a:hover{transform:scale(1.05)}
+.btn-wa{color:#047857}
+.btn-mail{color:#EA580C}
+
+footer{text-align:center;padding:1.5rem;font-size:12px;color:#9ca3af;border-top:2px solid #FFE0C2;margin-top:1rem;line-height:1.8}
+footer strong{color:#FF6B00;font-weight:700}
+footer a{color:#FF6B00;text-decoration:none;font-weight:700}
+
+@media(max-width:500px){.hero{padding:2.5rem 1rem 3rem}.container{padding:1rem 1rem 2rem}.contact{flex-direction:column;text-align:center}.fondateur{flex-direction:column;text-align:center}.fondateur-info{text-align:center}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="badge">🇨🇮 Côte d'Ivoire — Service national</div>
+  <h1>AGENCE DRIGBE<br><em>Personnel & Encadreurs CI</em></h1>
+  <p>Mise en relation fiable entre familles, écoles et professionnels qualifiés — partout en Côte d'Ivoire.</p>
+
+  <div class="fondateur">
+    <div class="avatar">DE</div>
+    <div class="fondateur-info">
+      <div class="fondateur-name">DRIGBE VLO ERIC</div>
+      <div class="fondateur-role">Fondateur & Responsable de l'Agence<br>Étudiant en Mathématiques-Informatique<br>Université Félix Houphouët-Boigny, Cocody</div>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">5</div><div class="stat-label">Formulaires</div></div>
+    <div class="stat"><div class="stat-num">24h</div><div class="stat-label">Réponse</div></div>
+    <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Gratuit</div></div>
+    <div class="stat"><div class="stat-num">CI</div><div class="stat-label">Tout le pays</div></div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Vous proposez un service — inscrivez-vous gratuitement</div>
+  <div class="cards">
+
+    <a href="prestataire.html" class="card card-orange">
+      <div class="card-icon">🏠</div>
+      <div class="card-title">REJOINDRE NOTRE RÉSEAU</div>
+      <div class="card-desc">Personnel à domicile — trouvez des missions régulières auprès de familles sérieuses.</div>
+      <div class="card-tags">
+        <span class="tag">Ménager(e)</span><span class="tag">Nounou</span>
+        <span class="tag">Chef cuisinier</span><span class="tag">Boy</span><span class="tag">Jardinier</span>
+      </div>
+      <span class="card-btn">S'inscrire gratuitement →</span>
+    </a>
+
+    <a href="encadreur.html" class="card card-violet">
+      <div class="card-icon">📚</div>
+      <div class="card-title">RECRUTEMENT ENCADREURS (CI)</div>
+      <div class="card-desc">Tuteurs, répétiteurs, enseignants et écoles privées — rejoignez notre réseau national.</div>
+      <div class="card-tags">
+        <span class="tag">Tuteur</span><span class="tag">Répétiteur</span>
+        <span class="tag">Enseignant</span><span class="tag">École privée</span>
+      </div>
+      <span class="card-btn">S'inscrire gratuitement →</span>
+    </a>
+
+  </div>
+
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-text">Vous avez besoin d'aide ?</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <div class="section-label">Vous cherchez un service — déposez votre demande</div>
+  <div class="cards">
+
+    <a href="famille.html" class="card card-vert">
+      <div class="card-icon">👨‍👩‍👧</div>
+      <div class="card-title">TROUVER MON PERSONNEL</div>
+      <div class="card-desc">Ménagère, nounou, cuisinier, boy — trouvez du personnel vérifié pour votre foyer.</div>
+      <div class="card-tags">
+        <span class="tag">Ménagère</span><span class="tag">Nounou</span>
+        <span class="tag">Cuisinier</span><span class="tag">Boy</span>
+      </div>
+      <span class="card-btn">Faire ma demande →</span>
+    </a>
+
+    <a href="cherche-encadreur.html" class="card card-rouge">
+      <div class="card-icon">🎓</div>
+      <div class="card-title">TROUVER UN ENCADREUR</div>
+      <div class="card-desc">Cours à domicile, soutien scolaire — trouvez le meilleur tuteur pour votre enfant.</div>
+      <div class="card-tags">
+        <span class="tag">Cours à domicile</span><span class="tag">Soutien scolaire</span>
+        <span class="tag">Tous niveaux</span>
+      </div>
+      <span class="card-btn">Faire ma demande →</span>
+    </a>
+
+  </div>
+
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-text">Comment ça marche ?</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-t">Remplissez</div><div class="step-d">Formulaire gratuit en moins de 3 min</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-t">On reçoit</div><div class="step-d">Votre fiche arrive directement chez Eric</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-t">On vous contacte</div><div class="step-d">Réponse par WhatsApp sous 24–48h</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-t">Mise en relation</div><div class="step-d">Contrat fourni, suivi garanti</div></div>
+  </div>
+
+  <div class="contact">
+    <div>
+      <h3>📞 Contactez ERIC directement</h3>
+      <p>WhatsApp ou Email — du lundi au samedi</p>
+    </div>
+    <div class="contact-btns">
+      <a href="https://wa.me/2250506058698" class="btn-wa">💬 WhatsApp 1</a>
+      <a href="https://wa.me/2250777457487" class="btn-wa">💬 WhatsApp 2</a>
+      <a href="mailto:drigbeeric76@gmail.com" class="btn-mail">✉️ Email</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <strong>AGENCE DRIGBE — Personnel & Encadreurs CI</strong><br>
+  Fondée par <strong>DRIGBE VLO ERIC</strong> — Étudiant en Mathématiques-Informatique, Université de Cocody<br>
+  📞 <a href="https://wa.me/2250506058698">+225 05 06 05 86 98</a> &nbsp;|&nbsp;
+  <a href="https://wa.me/2250777457487">+225 07 77 45 74 87</a> &nbsp;|&nbsp;
+  <a href="mailto:drigbeeric76@gmail.com">drigbeeric76@gmail.com</a><br>
+  Côte d'Ivoire — Service disponible dans tout le pays
+</footer>
+
+</body>
+</html>
