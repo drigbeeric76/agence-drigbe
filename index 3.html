@@ -218,8 +218,15 @@ function sendWA(form,titre){
   document.querySelectorAll('#familleForm input,#familleForm select,#familleForm textarea').forEach(function(el){if(el.name&&el.name!=='_subject'&&el.value){msg+='• *'+(labels[el.name]||el.name)+'* : '+el.value+'\n';}});
   msg+='\n📅 '+new Date().toLocaleDateString('fr-FR')+' '+new Date().toLocaleTimeString('fr-FR')+'\n\n_Agence DRIGBE CI_';
   var enc=encodeURIComponent(msg);
-  window.open('https://wa.me/2250506058698?text='+enc,'_blank');
-  setTimeout(function(){window.open('https://wa.me/2250777457487?text='+enc,'_blank');},2000);
+  var url1='https://wa.me/2250506058698?text='+enc;
+  var url2='https://wa.me/2250777457487?text='+enc;
+  if(/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)){
+    window.location.href=url1;
+    setTimeout(function(){window.location.href=url2;},4000);
+  } else {
+    window.open(url1,'_blank');
+    setTimeout(function(){window.open(url2,'_blank');},2000);
+  }
 }
 function submitForm(){
   var form=document.getElementById('familleForm'),btn=document.getElementById('submitBtn');
