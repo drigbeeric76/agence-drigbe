@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Le Secret des Élites – Cours à domicile</title>
+<style>
+:root{
+  --page:#E8ECF4;
+  --green:#0F2A66;
+  --tint:#EAF0FA;
+  --orange:#FDB913;
+  --white:#FFFFFF;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--page:#121A2E;}
+}
+:root[data-theme="dark"]{--page:#121A2E;}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth;}
+*,*::before,*::after{box-sizing:inherit;}
+body{margin:0;background:var(--page);font-family:"DM Sans","Segoe UI",Arial,sans-serif;color:var(--green);line-height:1.5;}
+.poster{max-width:760px;margin:0 auto;background:var(--white);overflow:hidden;}
+
+.hero{background:var(--green);color:var(--white);padding:44px 28px 40px;border-bottom:10px solid var(--orange);}
+.hero .tag{display:inline-block;background:var(--orange);color:var(--green);font-weight:800;font-size:1rem;padding:6px 14px;border-radius:999px;margin:0 0 22px;}
+.hero h1{font-family:"Fraunces",Georgia,"Times New Roman",serif;font-weight:800;font-size:clamp(2.6rem,11vw,4.6rem);line-height:1;margin:0;letter-spacing:-.01em;}
+.hero .sub{font-size:1.15rem;margin:18px 0 0;max-width:30em;}
+.hero .nom{margin:20px 0 0;font-weight:700;font-style:italic;}
+.hero .go{display:inline-block;margin-top:26px;background:var(--white);color:var(--green);font-weight:800;text-decoration:none;padding:13px 22px;border-radius:12px;}
+
+section{padding:34px 28px 6px;}
+h2{font-family:"Fraunces",Georgia,"Times New Roman",serif;font-size:1.65rem;line-height:1.15;margin:0 0 14px;color:var(--green);}
+
+.levels{display:flex;flex-wrap:wrap;gap:10px;margin:0;padding:0;list-style:none;}
+.levels li{background:var(--tint);border:2px solid var(--green);font-weight:700;padding:9px 16px;border-radius:12px;}
+.levels li.exam{background:var(--green);color:var(--white);}
+
+.subjects{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0;padding:0;list-style:none;}
+.subjects li{border-left:6px solid var(--orange);background:var(--tint);padding:10px 14px;font-weight:700;}
+
+.why{margin:0;padding:0;list-style:none;display:grid;gap:12px;}
+.why li{padding:14px 16px;border-radius:14px;background:var(--tint);border-left:6px solid var(--green);}
+.why li b{display:block;font-size:1.05rem;margin-bottom:2px;}
+
+/* Formulaire */
+.formwrap{margin-top:34px;background:var(--tint);padding:34px 20px 36px;border-top:10px solid var(--orange);}
+.formwrap h2{padding:0 8px;}
+.formwrap .lead{padding:0 8px;margin:0 0 20px;font-weight:600;}
+form{background:var(--white);border:2px solid var(--green);border-radius:16px;padding:22px 18px;}
+fieldset{border:0;margin:0 0 22px;padding:0;}
+legend{font-family:"Fraunces",Georgia,serif;font-weight:800;font-size:1.2rem;padding:0 0 10px;border-bottom:3px solid var(--orange);margin-bottom:14px;width:100%;}
+.row{display:grid;grid-template-columns:1fr;gap:14px;}
+@media (min-width:560px){.row.two{grid-template-columns:1fr 1fr;}}
+.field{margin-bottom:14px;}
+label{display:block;font-weight:700;margin-bottom:5px;}
+.req{color:#D12B2B;}
+input,select,textarea{width:100%;font:inherit;font-size:1rem;color:var(--green);background:var(--white);border:2px solid var(--green);border-radius:10px;padding:11px 12px;}
+textarea{min-height:90px;resize:vertical;}
+input:focus-visible,select:focus-visible,textarea:focus-visible,.btn:focus-visible,.go:focus-visible{outline:3px solid var(--orange);outline-offset:2px;}
+.hint{font-size:.9rem;font-weight:600;margin:5px 0 0;}
+.btn{display:block;width:100%;background:var(--green);color:var(--white);font:inherit;font-weight:800;font-size:1.1rem;border:0;border-radius:12px;padding:15px 20px;cursor:pointer;text-align:center;text-decoration:none;}
+.btn:disabled{opacity:.7;cursor:wait;}
+.success{display:none;background:var(--white);border:2px solid var(--green);border-radius:16px;padding:26px 20px;text-align:center;}
+.success h3{font-family:"Fraunces",Georgia,serif;font-size:1.5rem;margin:0 0 8px;}
+.success p{margin:0 0 14px;font-weight:600;}
+
+.contact{background:var(--green);color:var(--white);padding:32px 28px 36px;text-align:center;}
+.contact h2{color:var(--white);}
+.numbers{font-family:"Fraunces",Georgia,serif;font-weight:800;font-size:clamp(1.4rem,6.2vw,2rem);line-height:1.3;margin:6px 0 18px;}
+.contact .btn{display:inline-block;width:auto;background:var(--orange);color:var(--green);}
+.contact .zone{margin:16px 0 0;font-weight:600;}
+footer{background:var(--green);color:var(--white);border-top:1px solid var(--white);text-align:center;padding:14px 20px;font-size:.95rem;}
+
+@media print{
+  body{background:#fff;}
+  .poster{max-width:none;}
+  .formwrap,.hero .go{display:none;}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+}
+
+.hero{padding:30px 24px 26px;}
+.hero h1{font-size:clamp(2.1rem,9vw,3.4rem);}
+.hero .sub{margin-top:12px;}
+.hero .nom{margin-top:12px;}
+.formwrap{margin-top:0;border-top:0;padding-top:28px;}
+</style>
+</head>
+<body>
+<main class="poster">
+
+  <header class="hero">
+    <p class="tag">Inscriptions ouvertes</p>
+    <h1>Le Secret des Élites</h1>
+    <p class="sub">Cours à domicile et soutien scolaire à Abidjan. Un encadreur qualifié vient chez vous pour faire progresser votre enfant.</p>
+    <p class="nom">Le secret de la réussite, c'est un bon encadrement.</p>
+  </header>
+
+  <div class="formwrap" id="formulaire">
+    <h2>Demande d'un encadreur</h2>
+    <p class="lead">Remplissez ce formulaire. Votre demande arrive directement chez nous par WhatsApp et par email. Réponse sous 24 à 48 heures.</p>
+
+    <form id="demandeForm" action="https://formspree.io/f/xjgjelol" method="POST" novalidate>
+      <input type="hidden" name="_subject" value="🎓 DEMANDE ENCADREUR — Famille — Le Secret des Élites">
+      <input type="hidden" name="type_demandeur" value="Famille">
+
+      <fieldset>
+        <legend>Vos coordonnées</legend>
+        <div class="row two">
+          <div class="field"><label for="nom_complet">Nom complet <span class="req">*</span></label><input id="nom_complet" type="text" name="nom_complet" placeholder="Ex : Famille Kouadio" required></div>
+          <div class="field"><label for="telephone">Téléphone <span class="req">*</span></label><input id="telephone" type="tel" name="telephone" placeholder="07 XX XX XX XX" required></div>
+        </div>
+        <div class="row two">
+          <div class="field"><label for="whatsapp">WhatsApp (si différent)</label><input id="whatsapp" type="tel" name="whatsapp" placeholder="05 XX XX XX XX"></div>
+          <div class="field"><label for="email">Email</label><input id="email" type="email" name="email" placeholder="votre@email.com"></div>
+        </div>
+        <div class="row two">
+          <div class="field">
+            <label for="sv">Ville <span class="req">*</span></label>
+            <select id="sv" name="ville" required>
+              <option value="">— Choisir —</option>
+              <option>Abidjan</option><option>Yamoussoukro</option><option>Bouaké</option>
+              <option>Daloa</option><option>San-Pédro</option><option>Korhogo</option>
+              <option>Man</option><option>Grand-Bassam</option><option>Bingerville</option>
+              <option>Anyama</option><option>Dabou</option><option>Autre ville / Village</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="sc">Commune / Quartier <span class="req">*</span></label>
+            <select id="sc" name="commune" required><option value="">— Choisir d'abord la ville —</option></select>
+          </div>
+        </div>
+        <div class="field" id="avf" style="display:none"><label for="autre_ville">Précisez votre ville</label><input id="autre_ville" type="text" name="autre_ville" placeholder="Ex : Bouaflé, Tiassalé..."></div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Votre enfant</legend>
+        <div class="row two">
+          <div class="field">
+            <label for="classe">Classe <span class="req">*</span></label>
+            <select id="classe" name="classe_enfant" required>
+              <option value="">— Choisir —</option>
+              <option>Maternelle (PS, MS, GS)</option>
+              <option>CP</option><option>CE1</option><option>CE2</option>
+              <option>CM1</option><option>CM2</option>
+              <option>6ème</option><option>5ème</option><option>4ème</option><option>3ème</option>
+              <option>2nde</option><option>1ère</option><option>Terminale</option>
+              <option>Université / BTS</option>
+            </select>
+          </div>
+          <div class="field"><label for="age">Âge de l'enfant</label><input id="age" type="text" name="age_enfant" placeholder="Ex : 10 ans"></div>
+        </div>
+        <div class="field" id="serieField" style="display:none">
+          <label for="serie">Série (lycée)</label>
+          <select id="serie" name="serie_lycee">
+            <option value="">— Choisir —</option>
+            <option>Série A (Littéraire)</option><option>Série C (Mathématiques)</option>
+            <option>Série D (Sciences biologiques)</option><option>Série B (Économique)</option><option>Série G (Gestion)</option>
+          </select>
+        </div>
+        <div class="field"><label for="matieres">Matières concernées <span class="req">*</span></label><input id="matieres" type="text" name="matieres_demandees" placeholder="Ex : Mathématiques, Français, Anglais..." required></div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Organisation des cours</legend>
+        <div class="row two">
+          <div class="field">
+            <label for="freq">Fréquence</label>
+            <select id="freq" name="frequence_cours">
+              <option value="">— Choisir —</option>
+              <option>1 fois par semaine</option><option>2 fois par semaine</option>
+              <option>3 fois par semaine</option><option>Tous les jours</option>
+              <option>Week-end uniquement</option><option>Pendant les vacances</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="horaire">Horaire préféré</label>
+            <select id="horaire" name="horaire_prefere">
+              <option value="">— Choisir —</option>
+              <option>Matin (avant école)</option><option>Après-midi (après école)</option>
+              <option>Soir (17h–20h)</option><option>Week-end matin</option>
+              <option>Week-end après-midi</option><option>Flexible</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="budget">Budget mensuel (FCFA) <span class="req">*</span></label>
+          <select id="budget" name="budget_cours" required>
+            <option value="">— Choisir —</option>
+            <option>40 000 – 70 000 FCFA</option>
+            <option>70 000 – 100 000 FCFA</option>
+            <option>Plus de 100 000 FCFA</option>
+          </select>
+          <p class="hint">Budget minimum : 40 000 FCFA par mois.</p>
+        </div>
+        <div class="field">
+          <label for="demarrage">Démarrage souhaité</label>
+          <select id="demarrage" name="demarrage">
+            <option value="">— Choisir —</option>
+            <option>Immédiatement (urgent)</option><option>Dans 1 à 2 semaines</option>
+            <option>Au prochain trimestre</option><option>Pendant les vacances</option>
+            <option>Pas encore décidé</option>
+          </select>
+        </div>
+        <div class="field"><label for="objectifs">Difficultés ou objectifs particuliers</label><textarea id="objectifs" name="objectifs" placeholder="Ex : difficultés en maths, préparer le BAC, améliorer la moyenne..."></textarea></div>
+      </fieldset>
+
+      <button type="submit" class="btn" id="submitBtn">Envoyer ma demande</button>
+    </form>
+
+    <div class="success" id="successBox" role="status">
+      <h3>Merci, votre demande est envoyée</h3>
+      <p>Nous ouvrons WhatsApp pour confirmer l'envoi. Appuyez sur « Envoyer » dans WhatsApp pour finir.</p>
+      <a class="btn" id="waLink" href="https://wa.me/2250506058698">Ouvrir WhatsApp</a>
+    </div>
+  </div>
+
+  <section>
+    <h2>Pour quels niveaux ?</h2>
+    <ul class="levels">
+      <li>Primaire</li>
+      <li>6e – 3e</li>
+      <li>2nde – Terminale</li>
+      <li class="exam">CEPE</li>
+      <li class="exam">BEPC</li>
+      <li class="exam">BAC</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Matières enseignées</h2>
+    <ul class="subjects">
+      <li>Mathématiques</li>
+      <li>Physique-Chimie</li>
+      <li>SVT</li>
+      <li>Français</li>
+      <li>Anglais</li>
+      <li>Remise à niveau</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Pourquoi nous choisir ?</h2>
+    <ul class="why">
+      <li><b>Un suivi personnalisé</b>Chaque élève avance à son rythme, avec un programme adapté à ses lacunes.</li>
+      <li><b>Des encadreurs sélectionnés</b>Étudiants et enseignants choisis pour leur sérieux et leur pédagogie.</li>
+      <li><b>Chez vous, en sécurité</b>Les cours ont lieu à domicile, aux horaires qui conviennent à la famille.</li>
+      <li><b>Des bilans réguliers</b>Les parents suivent les progrès et reçoivent des conseils concrets.</li>
+    </ul>
+  </section>
+
+  <div class="contact">
+    <h2>Une question ? Contactez-nous</h2>
+    <p class="numbers">05 06 05 86 98<br>07 77 45 74 87</p>
+    <a class="btn" href="https://wa.me/2250506058698">Écrire sur WhatsApp</a>
+    <p class="zone">Abidjan · Cours du lundi au samedi</p>
+  </div>
+
+  <footer>Le Secret des Élites – Cours à domicile · Côte d'Ivoire</footer>
+</main>
+
+<script>
+(function(){
+  var C={'Abidjan':['Cocody','Plateau','Marcory','Treichville','Adjamé','Attécoubé','Koumassi','Port-Bouët','Yopougon','Abobo','Bingerville','Anyama','Songon','Deux Plateaux','Riviera','Angré','Zone 4','Zone Industrielle'],'Bouaké':['Bouaké Centre','Koko','Belleville','Broukro','Air France'],'Yamoussoukro':['Yamoussoukro Centre','Dioulakro','Morofé','Habitat'],'Daloa':['Daloa Centre','Tazibouo','Lobia'],'San-Pédro':['San-Pédro Centre','Bardo','Port'],'Korhogo':['Korhogo Centre','Soba'],'Man':['Man Centre','Gbapleu'],'Grand-Bassam':['Grand-Bassam Ville','Moossou'],'Bingerville':['Bingerville Centre'],'Anyama':['Anyama Centre'],'Dabou':['Dabou Centre']};
+  var sv=document.getElementById('sv'), sc=document.getElementById('sc'), avf=document.getElementById('avf');
+  var classe=document.getElementById('classe'), serieField=document.getElementById('serieField');
+
+  sv.addEventListener('change',function(){
+    var v=sv.value;
+    sc.innerHTML='<option value="">— Choisir —</option>';
+    if(v==='Autre ville / Village'){
+      avf.style.display='block';
+      sc.innerHTML+='<option>Centre-ville</option><option>Autre quartier</option>';
+      return;
+    }
+    avf.style.display='none';
+    if(C[v]){
+      C[v].forEach(function(x){var o=document.createElement('option');o.value=o.textContent=x;sc.appendChild(o);});
+    } else if(v){
+      sc.innerHTML+='<option>Centre-ville</option><option>Autre quartier</option>';
+    }
+  });
+
+  classe.addEventListener('change',function(){
+    var lycee=['2nde','1ère','Terminale'].indexOf(classe.value)>-1;
+    serieField.style.display=lycee?'block':'none';
+  });
+
+  var labels={nom_complet:'Nom',telephone:'Tél',whatsapp:'WhatsApp',email:'Email',ville:'Ville',commune:'Commune',autre_ville:'Autre ville',classe_enfant:'Classe',age_enfant:'Âge enfant',matieres_demandees:'Matières',serie_lycee:'Série',frequence_cours:'Fréquence',horaire_prefere:'Horaire',budget_cours:'Budget',demarrage:'Démarrage',objectifs:'Objectifs'};
+
+  var form=document.getElementById('demandeForm'), btn=document.getElementById('submitBtn');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!form.reportValidity()){return;}
+    btn.disabled=true; btn.textContent='Envoi en cours...';
+
+    var msg='🔔 *NOUVELLE DEMANDE — Le Secret des Élites*\n\n';
+    form.querySelectorAll('input,select,textarea').forEach(function(el){
+      if(el.name && el.type!=='hidden' && el.value){ msg+='• *'+(labels[el.name]||el.name)+'* : '+el.value+'\n'; }
+    });
+    msg+='\n📅 '+new Date().toLocaleDateString('fr-FR')+' '+new Date().toLocaleTimeString('fr-FR');
+    var url='https://wa.me/2250506058698?text='+encodeURIComponent(msg);
+
+    // Envoi par email (Formspree). Fonctionne quand la page est hébergée sur le site de l'agence.
+    try{
+      fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'},keepalive:true}).catch(function(){});
+    }catch(err){}
+
+    document.getElementById('waLink').href=url;
+    form.style.display='none';
+    document.getElementById('successBox').style.display='block';
+    document.getElementById('formulaire').scrollIntoView();
+    setTimeout(function(){ window.location.href=url; },900);
+  });
+})();
+</script>
+</body>
+</html>
